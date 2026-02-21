@@ -1,0 +1,74 @@
+ body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden;}
+  .glass { background: rgba(255,255,255,0.85); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+  .float { animation: float 5s ease-in-out infinite; }
+  @keyframes ping-slow { 0%,100%{opacity:.8;transform:scale(1)} 50%{opacity:0;transform:scale(1.8)} }
+  .ping-slow { animation: ping-slow 2.5s ease-in-out infinite; }
+
+  .tl-line::before {
+    content:''; position:absolute; left:7px; top:18px;
+    width:1px; height:calc(100% + 1.5rem);
+    background: linear-gradient(to bottom, #88C9C4, transparent);
+  }
+  .tl-line:last-child::before { display:none; }
+  input, textarea, select { font-family: 'Plus Jakarta Sans', sans-serif; }
+  /* hamburger lines */
+  .hb-line { display:block; width:22px; height:2px; background:#1A2D2B; border-radius:2px; transition: all .3s; transform-origin:center; }
+  #hb.open .hb-line:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+  #hb.open .hb-line:nth-child(2){ opacity:0; }
+  #hb.open .hb-line:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+
+  /* ── NAVBAR ── */
+  #navbar {
+  background: rgba(248, 250, 251, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition:
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+  /* Logo & nav links  */
+  #navbar .nav-logo {
+    transition: font-size 0.4s ease;
+    font-size: 1.25rem; /* xl default */
+  }
+  #navbar nav {
+    transition: padding-top 0.4s ease, padding-bottom 0.4s ease;
+  }
+  #navbar .nav-links a {
+    transition: font-size 0.4s ease, color 0.3s ease;
+    font-size: 0.875rem; /* sm default */
+  }
+  /* Scrolled state ditambah class .scrolled via JS */
+  #navbar.scrolled nav {
+    padding-top: 0.625rem;   /* py-2.5 */
+    padding-bottom: 0.625rem;
+  }
+  #navbar.scrolled .nav-logo {
+    font-size: 1.05rem; /* sedikit lebih kecil */
+  }
+  #navbar.scrolled .nav-links a {
+    font-size: 0.8rem;
+  }
+
+  /* Scroll indicator bounce */
+  @keyframes bounce-y {
+    0%,100% { transform: translateY(0); }
+    50%      { transform: translateY(8px); }
+  }
+  .scroll-hint { animation: bounce-y 1.8s ease-in-out infinite; }
+
+  /* Hero decorative blob */
+  @keyframes blob-drift {
+    0%,100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    50%      { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  }
+  .blob { animation: blob-drift 8s ease-in-out infinite; }
+
+  /* Avatar ring pulse */
+  @keyframes ring-pulse {
+    0%,100% { opacity:.6; transform:scale(1); }
+    50%      { opacity:0; transform:scale(1.12); }
+  }
+  .ring-pulse { animation: ring-pulse 2.8s ease-in-out infinite; }
